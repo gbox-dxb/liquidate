@@ -29,6 +29,6 @@ jobs:
         run: npm run build
 
       - name: Deploy to GitHub Pages
-        run: npx gh-pages -d dist -r https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git
+        run: npx gh-pages -d dist --clean -r https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
