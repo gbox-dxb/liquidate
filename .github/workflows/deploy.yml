@@ -1,34 +1,38 @@
-name: Deploy
+name: Clean Build and Deploy to GitHub Pages
 
 on:
   push:
     branches:
-      - main  # or your branch
+      - main
+
+permissions:
+  contents: write
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
 
-      - name: Set up Node.js
+      - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: 20
+          node-version: '20'
 
       - name: Install dependencies
-        run: npm install
-
-      # 🔹 Add this step to set Git identity
-      - name: Configure Git
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        run: npm ci
 
       - name: Build
         run: npm run build
-
-      - name: Deploy to GitHub-Pages
-        run: npx gh-pages -d dist --no-history -r https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_PAGES: "true" # Flag for vite.config.ts
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          force_orphan: true # This deletes old files/history on the gh-pages branch
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
