@@ -124,7 +124,7 @@ export function DataTableToolbar<TData>({
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="all" className="cursor-pointer">All Priorities</SelectItem>
-              {priorities.map((priority) => (
+              {priorities.map((priority: any) => (
                 <SelectItem
                   key={priority.value}
                   value={priority.value}
