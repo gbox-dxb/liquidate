@@ -5,8 +5,9 @@ import { useNavigate } from "react-router-dom"
 import { Command as CommandPrimitive } from "cmdk"
 import {
   Search,
-  LayoutPanelLeft,
   LayoutDashboard,
+  LayoutPanelTop,
+  LayoutPanelLeft,
   Mail,
   CheckSquare,
   MessageCircle,
@@ -128,7 +129,8 @@ export function CommandSearch({ open, onOpenChange }: CommandSearchProps) {
 
   const searchItems: SearchItem[] = [
     // Dashboards
-    { title: "Dashboard 1", url: "/dashboard", group: "Dashboards", icon: LayoutDashboard },
+    { title: "Dashboard", url: "/dashboard", group: "Dashboards", icon: LayoutDashboard },
+    { title: "Dashboard 1", url: "/dashboard-1", group: "Dashboards", icon: LayoutPanelTop },
     { title: "Dashboard 2", url: "/dashboard-2", group: "Dashboards", icon: LayoutPanelLeft },
 
     // Apps

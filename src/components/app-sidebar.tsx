@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import {
+  LayoutPanelTop,
   LayoutPanelLeft,
   LayoutDashboard,
   Mail,
@@ -43,9 +44,14 @@ const data = {
       label: "Dashboards",
       items: [
         {
-          title: "Dashboard 1",
+          title: "Dashboard",
           url: "/dashboard",
           icon: LayoutDashboard,
+        },
+        {
+          title: "Dashboard 1",
+          url: "/dashboard-1",
+          icon: LayoutPanelTop,
         },
         {
           title: "Dashboard 2",

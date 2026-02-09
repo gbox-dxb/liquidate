@@ -9,15 +9,15 @@ import { RevenueBreakdown } from "./components/revenue-breakdown"
 
 export default function Dashboard2() {
   return (
-    <BaseLayout>
+    <BaseLayout title="" description="">
       <div className="flex-1 space-y-6 px-6 pt-0">
         {/* Enhanced Header */}
 
         <div className="flex md:flex-row flex-col md:items-center justify-between gap-4 md:gap-6">
           <div className="flex flex-col gap-2">
-            <h1 className="text-2xl font-bold tracking-tight">Business Dashboard</h1>
+            <h1 className="text-2xl font-bold tracking-tight">Dashboard 2</h1>
             <p className="text-muted-foreground">
-              Monitor your business performance and key metrics in real-time
+              Welcome to your dashboard-2
             </p>
           </div>
           <QuickActions />

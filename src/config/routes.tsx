@@ -4,6 +4,7 @@ import { Navigate } from 'react-router-dom'
 // Lazy load components for better performance
 const Landing = lazy(() => import('@/app/landing/page'))
 const Dashboard = lazy(() => import('@/app/dashboard/page'))
+const Dashboard1 = lazy(() => import('@/app/dashboard-1/page'))
 const Dashboard2 = lazy(() => import('@/app/dashboard-2/page'))
 const Mail = lazy(() => import('@/app/mail/page'))
 const Tasks = lazy(() => import('@/app/tasks/page'))
@@ -63,6 +64,10 @@ export const routes: RouteConfig[] = [
   {
     path: "/dashboard",
     element: <Dashboard />
+  },
+  {
+    path: "/dashboard-1",
+    element: <Dashboard1 />
   },
   {
     path: "/dashboard-2",
